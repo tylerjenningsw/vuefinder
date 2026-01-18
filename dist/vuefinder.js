@@ -1689,7 +1689,7 @@ function yo(o) {
   };
 }
 const bo = (o, e) => {
-  const t = ro(o.id ?? "vf"), n = Xn(), a = e.i18n, d = o.locale ?? e.locale, l = ho(o.id ?? "vf", o.config ?? {}), r = go();
+  const t = ro(o.id ?? "vf"), n = Xn(), a = e.i18n ?? {}, d = o.locale ?? e.locale, l = ho(o.id ?? "vf", o.config ?? {}), r = go();
   if (!o.driver)
     throw new Error("Driver is required for VueFinder");
   const c = new wo(o.driver);
