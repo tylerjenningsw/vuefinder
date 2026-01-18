@@ -53,39 +53,41 @@ const handleContextMenu = (event: MouseEvent) => {
 </script>
 
 <template>
-  <div
-    :data-theme="app.theme.current"
-    class="vuefinder__themer vuefinder__modal-layout"
-    aria-labelledby="modal-title"
-    role="dialog"
-    aria-modal="true"
-    tabindex="0"
-    @keyup.esc="app.modal.close()"
-  >
-    <div class="vuefinder__modal-layout__overlay"></div>
+  <Teleport to="body">
+    <div
+      :data-theme="app.theme.current"
+      class="vuefinder__themer vuefinder__modal-layout"
+      aria-labelledby="modal-title"
+      role="dialog"
+      aria-modal="true"
+      tabindex="0"
+      @keyup.esc="app.modal.close()"
+    >
+      <div class="vuefinder__modal-layout__overlay"></div>
 
-    <div class="vuefinder__modal-layout__container">
-      <div
-        class="vuefinder__modal-layout__wrapper"
-        @contextmenu="handleContextMenu"
-        @mousedown.self="app.modal.close()"
-      >
-        <div ref="modalBody" class="vuefinder__modal-layout__body">
-          <div class="vuefinder__modal-layout__content">
-            <slot />
-          </div>
-          <div v-if="$slots.buttons" class="vuefinder__modal-layout__footer">
-            <slot name="buttons" />
+      <div class="vuefinder__modal-layout__container">
+        <div
+          class="vuefinder__modal-layout__wrapper"
+          @contextmenu="handleContextMenu"
+          @mousedown.self="app.modal.close()"
+        >
+          <div ref="modalBody" class="vuefinder__modal-layout__body">
+            <div class="vuefinder__modal-layout__content">
+              <slot />
+            </div>
+            <div v-if="$slots.buttons" class="vuefinder__modal-layout__footer">
+              <slot name="buttons" />
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <!-- Full screen drag overlay (similar to VueFinder external drop overlay) -->
-    <div v-if="props.showDragOverlay" class="vuefinder__modal-drag-overlay">
-      <div class="vuefinder__modal-drag-message">
-        {{ props.dragOverlayText || 'Drag and drop the files/folders to here.' }}
+      <!-- Full screen drag overlay (similar to VueFinder external drop overlay) -->
+      <div v-if="props.showDragOverlay" class="vuefinder__modal-drag-overlay">
+        <div class="vuefinder__modal-drag-message">
+          {{ props.dragOverlayText || 'Drag and drop the files/folders to here.' }}
+        </div>
       </div>
     </div>
-  </div>
+  </Teleport>
 </template>
