@@ -113,3 +113,19 @@
 .vuefinder__modal-layout .vf-btn-primary[disabled] {
   @apply border-(--vf-border-primary) bg-(--vf-bg-disabled) text-(--vf-text-disabled);
 }
+
+/* Explicit responsive rules for upload actions - fallback for Tailwind utility issues */
+.vuefinder__upload-actions-mobile {
+  display: block;
+}
+.vuefinder__upload-actions-desktop {
+  display: none;
+}
+@media (min-width: 640px) {
+  .vuefinder__upload-actions-mobile {
+    display: none;
+  }
+  .vuefinder__upload-actions-desktop {
+    display: block;
+  }
+}

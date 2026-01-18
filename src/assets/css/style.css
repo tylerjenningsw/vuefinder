@@ -57,7 +57,7 @@
 @import './_scrollbars.css';
 @import './_drag_over.css';
 
-@source './src/**/*.{vue,js,ts,jsx,tsx,svg}';
+@source '../../**/*.{vue,js,ts,jsx,tsx,svg}';
 
 .vf-scrollbars-theme {
   box-sizing: border-box;
