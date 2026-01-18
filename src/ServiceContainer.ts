@@ -16,7 +16,7 @@ import type { VueFinderProps } from './types';
 export default (props: VueFinderProps, options: Record<string, unknown>): any => {
   const storage = useStorage(props.id ?? 'vf');
   const emitter = mitt();
-  const supportedLocales = options.i18n;
+  const supportedLocales = options.i18n ?? {};
   const initialLang = props.locale ?? options.locale;
 
   const configStore: ConfigStore = createConfigStore(props.id ?? 'vf', props.config ?? {});
